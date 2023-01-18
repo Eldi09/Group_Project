@@ -1,0 +1,628 @@
+<!DOCTYPE HTML>
+<html lang="zxx">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Movies</title>
+	<!-- Favicon Icon -->
+	<link rel="icon" type="image/png" href="static/assets/img/favcion.png" />
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" href="static/assets/css/bootstrap.min.css" media="all" />
+	<!-- Slick nav CSS -->
+	<link rel="stylesheet" type="text/css" href="static/assets/css/slicknav.min.css" media="all" />
+	<!-- Iconfont CSS -->
+	<link rel="stylesheet" type="text/css" href="static/assets/css/icofont.css" media="all" />
+	<!-- Owl carousel CSS -->
+	<link rel="stylesheet" type="text/css" href="static/assets/css/owl.carousel.css">
+	<!-- Popup CSS -->
+	<link rel="stylesheet" type="text/css" href="static/assets/css/magnific-popup.css">
+	<!-- Main style CSS -->
+	<link rel="stylesheet" type="text/css" href="static/assets/css/style.css" media="all" />
+	<!-- Responsive CSS -->
+	<link rel="stylesheet" type="text/css" href="static/assets/css/responsive.css" media="all" />
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+	<!-- Page loader -->
+	<div id="preloader"></div>
+	<!-- header section start -->
+	<header class="header">
+		<div class="container">
+			<div class="header-area">
+				<div class="logo">
+					<a href="#">
+						<h1> MOVIES</h1>
+						<img src="../static/assets/img/logo.png" alt="logo" />
+					</a>
+				</div>
+				<!-- <div class="header-right">
+					<form action="#">
+						<select>
+							<option value="Movies">Movies</option>
+							<option value="Movies">Movies</option>
+							<option value="Movies">Movies</option>
+						</select>
+						<input type="text" />
+						<button><i class="icofont icofont-search"></i></button>
+					</form>
+					<ul>
+						<li><a href="#">Welcome Guest!</a></li>
+						<li><a class="login-popup" href="#">Login</a></li>
+					</ul>
+				</div> -->
+				<div class="menu-area">
+					<div class="responsive-menu"></div>
+					<div class="mainmenu">
+						<ul id="primary-menu">
+							<li><a class="active" href="/">Home</a></li>
+							<li><a href="/celebrities">Celebrities</a></li>
+							<!-- <li><a href="movies.html">Movies</a></li>
+							
+							<li><a href="top-movies.html">Top Movies</a></li>
+							<li><a href="blog.html">News</a></li> -->
+							<li><a href="#">Comming Soon <i class="icofont icofont-simple-down"></i></a>
+								<ul>
+									<li><a href="blog-details.html">Blog Details</a></li>
+									<li><a href="movie-details.html">Movie Details</a></li>
+								</ul>
+							</li>
+							<!-- <li><a class="theme-btn" href="#"><i class="icofont icofont-ticket"></i> Tickets</a></li> -->
+							<a class="theme-btn login-popup" href="#"><i class="icofont icofont-login"></i> Login</a>
+							<!-- <a class="theme-btn" href="#">register</a> -->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- Login Form -->
+	<div class="login-area">
+		<div class="login-box">
+			<a href="#"><i class="icofont icofont-close"></i></a>
+			<h2>LOGIN</h2>
+			<form action="/login" id="formValidationLogin" method="post" name="formValidationLogin">
+				<h6>EMAIL ADDRESS</h6>
+				<input type="text" class="form-control" name="email" placeholder="Email" onfocusout="check_email_login()">
+				<p class="text-danger" id="emailErrorLogin"></p>
+
+				<h6>PASSWORD</h6>
+				<input type="password" class="form-control" id="loginPass" name="password" placeholder="Password" >
+				<p class="text-danger" id="loginPassError"></p>
+				<!-- {% with messages = get_flashed_messages(category_filter=['loginPassError']) %}
+										{% if messages %}
+										<div class="alert alert-danger" role="alert">
+											<strong>Flash</strong>
+												{% for message in messages %}
+												<p>{{message}}</p>
+												{% endfor %}
+										</div>
+										{% endif %}
+									{% endwith %} -->
+
+				<div class="login-signup">
+					<a href="#" class="nav-link active register-popup">Don't have an account? Register</a>
+				</div>
+				<!-- <a href="#" class="theme-btn">LOG IN</a> -->
+				<input type="submit" value="Login" class="theme-btn" onclick="check_pass_login()">
+				<!-- <span>Or Via Social</span>
+				<div class="login-social">
+					<a href="#"><i class="icofont icofont-social-facebook"></i></a>
+					<a href="#"><i class="icofont icofont-social-twitter"></i></a>
+					<a href="#"><i class="icofont icofont-social-linkedin"></i></a>
+					<a href="#"><i class="icofont icofont-social-google-plus"></i></a>
+					<a href="#"><i class="icofont icofont-camera"></i></a>
+				</div> -->
+			</form>
+		</div>
+	</div>
+	<!-- Register From -->
+	<div class="register-area">
+		<div class="register-box">
+			<a href="#"><i class="icofont icofont-close"></i></a>
+			<h2>Register</h2>
+			<form action="/register" id="formValidation" method="post" name="formValidation">
+				<h6>Name</h6>
+				<input type="text" class="form-control" name="name" placeholder="Name">
+	
+				<h6>EMAIL ADDRESS</h6>
+				<input type="email" class="form-control" name="email" placeholder="Email" onfocusout="check_email()">
+				<p class="text-danger" id="emailError"></p>
+
+				<h6>PASSWORD</h6>
+				<input type="password" class="form-control" id="password" name="password" placeholder="Password">
+	
+				<h6>CONFIRM PASSWORD</h6>
+				<input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password">
+				
+				<input type="submit" value="Register" class="theme-btn">
+			</form>
+		</div>
+	</div>
+	<!-- Tickets section -->
+	<div class="buy-ticket">
+		<div class="container">
+			<div class="buy-ticket-area">
+				<a href="#"><i class="icofont icofont-close"></i></a>
+				<div class="row">
+					<div class="col-lg-8">
+						<div class="buy-ticket-box">
+							<h4>Buy Tickets</h4>
+							<h5>Seat</h5>
+							<h6>Screen</h6>
+							<div class="ticket-box-table">
+								<table class="ticket-table-seat">
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+								</table>
+								<table>
+									<tr>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>2</td>
+									</tr>
+									<tr>
+										<td>3</td>
+									</tr>
+									<tr>
+										<td>4</td>
+									</tr>
+									<tr>
+										<td>5</td>
+									</tr>
+								</table>
+								<table class="ticket-table-seat">
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td class="active">1</td>
+										<td class="active">1</td>
+										<td class="active">1</td>
+										<td class="active">1</td>
+										<td class="active">1</td>
+										<td class="active">1</td>
+										<td class="active">1</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+								</table>
+								<table>
+									<tr>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>2</td>
+									</tr>
+									<tr>
+										<td>3</td>
+									</tr>
+									<tr>
+										<td>4</td>
+									</tr>
+									<tr>
+										<td>5</td>
+									</tr>
+								</table>
+								<table class="ticket-table-seat">
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+								</table>
+							</div>
+							<div class="ticket-box-available">
+								<input type="checkbox" />
+								<span>Available</span>
+								<input type="checkbox" checked />
+								<span>Unavailable</span>
+								<input type="checkbox" />
+								<span>Selected</span>
+							</div>
+							<a href="#" class="theme-btn">previous</a>
+							<a href="#" class="theme-btn">Next</a>
+						</div>
+					</div>
+					<div class="col-lg-3 offset-lg-1">
+						<div class="buy-ticket-box mtr-30">
+							<h4>Your Information</h4>
+							<ul>
+								<li>
+									<p>Location</p>
+									<span>HB Cinema Box Corner</span>
+								</li>
+								<li>
+									<p>TIME</p>
+									<span>2018.07.09 20:40</span>
+								</li>
+								<li>
+									<p>Movie name</p>
+									<span>Home Alone</span>
+								</li>
+								<li>
+									<p>Ticket number</p>
+									<span>2 Adults, 2 Children, 2 Seniors</span>
+								</li>
+								<li>
+									<p>Price</p>
+									<span>89$</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!-- header section end -->
+	<!-- hero area start -->
+	<section class="hero-area" id="home">
+		<div class="container">
+			<div class="hero-area-slider">
+				<div class="row hero-area-slide">
+					<div class="col-lg-6 col-md-5">
+						<div class="hero-area-content">
+							<img src="static/assets/img/{{movies[0]['cover_pic']}}" alt="about" />
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-7">
+						<div class="hero-area-content pr-50">
+							<h2>{{movies[0]['title']}}</h2>
+							<div class="review">
+								<div class="author-review">
+									<i class="icofont icofont-star"></i>
+									<i class="icofont icofont-star"></i>
+									<i class="icofont icofont-star"></i>
+									<i class="icofont icofont-star"></i>
+									<i class="icofont icofont-star"></i>
+								</div>
+								<h4>180k voters</h4>
+							</div>
+							<p>{{movies[0]['description']}}</p>
+							<h3>Cast:</h3>
+							<div class="slide-cast">
+								{% for clebritie in clebrities %}
+									{% if movies[0]['id'] == clebritie['movie_id'] %}
+										<div class="single-slide-cast">
+											<img src="../static/assets/img/{{clebritie.profile_pic}}" alt="about" />
+										</div>
+									{% endif %}
+								{% endfor %}
+								
+								<div class="single-slide-cast text-center">
+									5+
+								</div>
+							</div>
+							<div class="slide-trailor">
+								<!-- <h3>Watch Trailer</h3> -->
+								<!-- <a class="theme-btn theme-btn2 popup-youtube" href="{{movies[0].trailer}}"><i class="icofont icofont-play"></i>
+									Trailer</a> -->
+								<a class="theme-btn" href="#"><i class="icofont icofont-ticket"></i> Tickets</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row hero-area-slide">
+					<div class="col-lg-6 col-md-5">
+						<div class="hero-area-content">
+							<img src="static/assets/img/{{movies[1]['cover_pic']}}" alt="about" />
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-7">
+						<div class="hero-area-content pr-50">
+							<h2>{{movies[1]['title']}}</h2>
+							<div class="review">
+								<div class="author-review">
+									<i class="icofont icofont-star"></i>
+									<i class="icofont icofont-star"></i>
+									<i class="icofont icofont-star"></i>
+									<i class="icofont icofont-star"></i>
+									<i class="icofont icofont-star"></i>
+								</div>
+								<h4>180k voters</h4>
+							</div>
+							<p>{{movies[1]['description']}}</p>
+							<h3>Cast:</h3>
+							<div class="slide-cast">
+								{% for clebritie in clebrities %}
+									{% if movies[1]['id'] == clebritie['movie_id'] %}
+										<div class="single-slide-cast">
+											<img src="../static/assets/img/{{clebritie.profile_pic}}" alt="about" />
+										</div>
+									{% endif %}
+								{% endfor %}
+								
+								<div class="single-slide-cast text-center">
+									5+
+								</div>
+							</div>
+							<div class="slide-trailor">
+								<!-- <h3>Watch Trailer</h3> -->
+								<!-- <a class="theme-btn theme-btn2 popup-youtube" href="{{movies[0].trailer}}"><i class="icofont icofont-play"></i>
+									Trailer</a> -->
+								<a class="theme-btn" href="#"><i class="icofont icofont-ticket"></i> Tickets</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row hero-area-slide">
+					<div class="col-lg-6 col-md-5">
+						<div class="hero-area-content">
+							<img src="static/assets/img/{{movies[2]['cover_pic']}}" alt="about" />
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-7">
+						<div class="hero-area-content pr-50">
+							<h2>{{movies[2]['title']}}</h2>
+							<div class="review">
+								<div class="author-review">
+									<i class="icofont icofont-star"></i>
+									<i class="icofont icofont-star"></i>
+									<i class="icofont icofont-star"></i>
+									<i class="icofont icofont-star"></i>
+									<i class="icofont icofont-star"></i>
+								</div>
+								<h4>180k voters</h4>
+							</div>
+							<p>{{movies[2]['description']}}</p>
+							<h3>Cast:</h3>
+							<div class="slide-cast">
+								{% for clebritie in clebrities %}
+									{% if movies[2]['id'] == clebritie['movie_id'] %}
+										<div class="single-slide-cast">
+											<img src="../static/assets/img/{{clebritie.profile_pic}}" alt="about" />
+										</div>
+									{% endif %}
+								{% endfor %}
+								
+								<div class="single-slide-cast text-center">
+									5+
+								</div>
+							</div>
+							<div class="slide-trailor">
+								<!-- <h3>Watch Trailer</h3> -->
+								<!-- <a class="theme-btn theme-btn2 popup-youtube" href="{{movies[0].trailer}}"><i class="icofont icofont-play"></i>
+									Trailer</a> -->
+								<a class="theme-btn" href="#"><i class="icofont icofont-ticket"></i> Tickets</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<div class="hero-area-thumb">
+				<div class="thumb-prev">
+					<div class="row hero-area-slide">
+						<div class="col-lg-6">
+							<div class="hero-area-content">
+								<img src="static/assets/img/{{movies[2]['cover_pic']}}" alt="about" />
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="hero-area-content pr-50">
+								<h2>{{movies[2]['title']}}</h2>
+								<div class="review">
+									<div class="author-review">
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+									</div>
+									<h4>180k voters 4 </h4>
+								</div>
+								<p>{{movies[2]['description']}}</p>
+								<h3>Cast:</h3>
+								<div class="slide-cast">
+									{% for clebritie in clebrities %}
+										{% if movies[2]['id'] == clebritie['movie_id'] %}
+											<div class="single-slide-cast">
+												<img src="../static/assets/img/{{clebritie.profile_pic}}" alt="about" />
+											</div>
+										{% endif %}
+									{% endfor %}
+									
+									<div class="single-slide-cast text-center">
+										5+
+									</div>
+								</div>
+								<div class="slide-trailor">
+									<!-- <h3>Watch Trailer</h3> -->
+									<!-- <a class="theme-btn theme-btn2 popup-youtube" href="#"><i class="icofont icofont-play"></i>
+										Trailer</a> -->
+									<a class="theme-btn" href="{{movies[2]['trailer']}}"><i class="icofont icofont-ticket"></i> Tickets</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="thumb-next">
+					<div class="row hero-area-slide">
+						<div class="col-lg-6">
+							<div class="hero-area-content">
+								<img src="static/assets/img/{{movies[1]['cover_pic']}}" alt="about" />
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="hero-area-content pr-50">
+								<h2>{{movies[1]['title']}}</h2>
+								<div class="review">
+									<div class="author-review">
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+										<i class="icofont icofont-star"></i>
+									</div>
+									<h4>180k voters 5</h4>
+								</div>
+								<p>{{movies[1]['description']}}</p>
+								<h3>Cast:</h3>
+								<div class="slide-cast">
+									{% for clebritie in clebrities %}
+										{% if movies[1]['id'] == clebritie['movie_id'] %}
+											<div class="single-slide-cast">
+												<img src="../static/assets/img/{{clebritie.profile_pic}}" alt="about" />
+											</div>
+										{% endif %}
+									{% endfor %}
+									<div class="single-slide-cast text-center">
+										5+
+									</div>
+								</div>
+								<div class="slide-trailor">
+									<!-- <h3>Watch Trailer</h3> -->
+									<!-- <a class="theme-btn theme-btn2 popup-youtube" href="{{movies[1].trailer}}"><i class="icofont icofont-play"></i>
+										Trailer</a> -->
+									<a class="theme-btn" href="#"><i class="icofont icofont-ticket"></i>Tickets</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- footer section end -->
+	<!-- jquery main JS -->
+	<script src="static/assets/js/jquery.min.js"></script>
+	<!-- Bootstrap JS -->
+	<script src="static/assets/js/bootstrap.min.js"></script>
+	<!-- Slick nav JS -->
+	<script src="static/assets/js/jquery.slicknav.min.js"></script>
+	<!-- owl carousel JS -->
+	<script src="static/assets/js/owl.carousel.min.js"></script>
+	<!-- Popup JS -->
+	<script src="static/assets/js/jquery.magnific-popup.min.js"></script>
+	<!-- Isotope JS -->
+	<script src="static/assets/js/isotope.pkgd.min.js"></script>
+	<!-- main JS -->
+	<script src="static/assets/js/main.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="static/assets/js/custom.js"></script>
+	<script src="{{url_for('static', filename='assets/js/emailRegister.js')}}" async></script>
+</body>
+
+</html>
